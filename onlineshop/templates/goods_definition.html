@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>你的商品</title>
+    <style>
+        .goods-block {
+        margin: 10px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data" class="goods-block">
+        {% csrf_token %}
+        <p disabled="True" style="display: none">{{ form.seller }}</p>
+        <p>名称：{{ form.good_name }}</p>
+        <p>单价：{{ form.good_price }}</p>
+        <p>标签：{{ form.good_label }}</p>
+        <p>库存数量：{{ form.good_quantity }}</p>
+        <p>商品图片：{{ form.good_image }}</p>
+        <button id='save' type="submit">保存</button>
+        <span style="color: red"> {{ tip }} </span>
+    </form>
+</body>
+</html>

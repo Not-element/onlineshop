@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户登录</title>
+</head>
+<body>
+<form method = 'post' action = '/buyer/buyer_log/'>
+
+    {%  csrf_token %}
+
+    <input type = 'text' name = 'buyer' placeholder = '用户名'>
+    <input type = 'password' name = 'pwd' placeholder = '密码'>
+    <input id="save" type = 'submit' value = '登录'/>
+    <button ><a href="/buyer/register/">注册</a> </button>
+    <span style = 'color: red;'>
+        {{ tip }}
+    </span>
+</form>
+</body>
+</html>

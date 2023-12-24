@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OnlineShop</title>
+      <style>
+    /* 基本样式 */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    #login-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: 10px;
+        right: 10px;
+        position: fixed;
+    }
+    #login-container a {
+        color: #fff;
+        text-decoration: none;
+    }
+    #login-container a:hover {
+        text-decoration: underline;
+    }
+    #login-container button {
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+    }
+    #login-container button:hover {
+        background-color: #45a049;
+    }
+    #user-info {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        top: 10px;
+        right: 70px;
+        position: fixed;
+    }
+    #user-info .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 1020px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        z-index: 1;
+        flex-direction: row;
+        top: 10px;
+    }
+    #user-info .dropdown-content a {
+        color: black;
+        padding: 6px 8px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+    #user-info .dropdown-content a:hover {background-color: #f1f1f1}
+    #user-info:hover .dropdown-content {display: block;}
+    #user-info .dropdown-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    #seller-info {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        top: 10px;
+        right: 70px;
+        position: fixed;
+    }
+    #seller-info .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 1020px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+        z-index: 1;
+        flex-direction: row;
+        top: 10px;
+    }
+    #seller-info .dropdown-content a {
+        color: black;
+        padding: 6px 8px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+    #seller-info .dropdown-content a:hover {background-color: #f1f1f1}
+    #seller-info:hover .dropdown-content {display: block;}
+    #seller-info .dropdown-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div id="login-container">
+            <div id="not_login">
+                <button> <a href="/seller/seller_log/">商户入驻</a> </button>/
+                <button> <a href="/buyer/buyer_log/">用户登录</a> </button>/
+                <button> <a href="/buyer/buyer_reg/">用户注册</a> </button>
+            </div>
+            <div id="user-info">
+                <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                style="color: greenyellow;">{{ name }}</div>
+                <div class="dropdown-content">
+                    <a href="#">个人资料</a><a href="/buyer/log_out/">退出</a>
+                </div>
+            </div>
+            <div id="seller-info">
+                <div class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    style="color: greenyellow;">{{ name }}</div>
+                <div class="dropdown-content">
+                    <a href="/seller/goods_list">现有商品</a>
+                    <a href="/seller/def_goods">还有商品?</a>
+                    <a href="/seller/log_out/">退出</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- 主要内容放在这里 -->
+    </main>
+    <script>
+        test = '{{ is_login }}';
+        if (test === "seller") {
+            document.getElementById('not_login').style.display = 'none'
+            document.getElementById('seller-info').style.display = 'flex'
+        } else if (test === "buyer"){
+            document.getElementById('not_login').style.display = 'none'
+            document.getElementById('user-info').style.display = 'flex'
+        }else {
+            document.getElementById('user-info').style.display = 'none'
+            document.getElementById('seller-info').style.display = 'none'
+        }
+    </script>
+</body>
+</html>

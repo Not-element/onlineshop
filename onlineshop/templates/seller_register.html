@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商家注册</title>
+</head>
+<body>
+<form method = 'post' action = '/seller/seller_reg/'>
+
+    {%  csrf_token %}
+
+    <input type = 'text' name = 'seller' placeholder = '用户名' required>
+    <input type = 'password' name = 'pwd' placeholder = '密码' required>
+    <input type = 'password' name = 'rpwd' placeholder = '确认密码' required>
+    <input id='save' type = 'submit' value = '注册'/>
+    <button ><a href="/seller/seller_log/">登录</a> </button>
+    <span style = 'color: red;'>
+        {{ tip }}
+    </span>
+</form>
+</body>
+</html>

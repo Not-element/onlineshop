@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <style>
+        .buyer_ {
+        margin: 10px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form method = 'post' action = '/buyer/buyer_reg/' class="buyer_">
+
+    {%  csrf_token %}
+
+    {{ form.as_p }}
+
+    <input id='save' type = 'submit' value = '注册'/>
+    <button ><a href="/buyer/buyer_log/">登录</a> </button>
+    <span style = 'color: red;'>
+        {{ tip }}
+    </span>
+</form>
+</body>
+</html>

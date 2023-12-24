@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>现有商品</title>
+    <style>
+    .goods-block {
+        margin: 10px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+
+    .goods-block img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body>
+{% for good in goods %}
+    <div class="goods-block">
+        <img src="{{ good.good_image.url }}" alt="{{ good.good_name }}" style="width: 200px; height: 200px;">
+        <p>{{ good.good_name }}</p>
+        <p>单价：{{ good.good_price }}</p>
+        <p>库存：{{ good.good_quantity }}</p>
+        <p>标签：{{ good.good_label }}</p>
+        <p>状态：{{ good.good_state }}</p>
+        <a href="/seller/good/{{ good.id }}/edit/"><button>修改</button></a>
+    </div>
+{% endfor %}
+</body>
+</html>
